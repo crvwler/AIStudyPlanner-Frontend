@@ -1,18 +1,20 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Dashboard from "./pages/Dashboard";
-import Navbar from "./components/UI/Navbar";
+import Sidebar from "./components/UI/Sidebar";
+import Today from "./pages/Today";
+import Upcoming from "./pages/Upcoming";
 
 function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
-    </Router>
-  );
+    return (
+        <Router>
+            <Sidebar />
+            <div className="ml-64 p-6">
+                <Routes>
+                    <Route path="/today" element={<Today />} />
+                    <Route path="/upcoming" element={<Upcoming />} />
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
