@@ -1,26 +1,36 @@
 import { useState, useEffect } from "react";
 import { FaPlusCircle } from "react-icons/fa";
 import AddTask from "../components/UI/AddTasks";
+import { getTasks, createTask } from "../api"; // Import API functions
 
 const Today = () => {
     const [tasks, setTasks] = useState([]);
     const [filter, setFilter] = useState("all");
     const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
 
-    // Load tasks from localStorage when the component mounts
+    // Fetch tasks from the backend on component mount
     useEffect(() => {
-        const storedTasks = JSON.parse(localStorage.getItem("todayTasks")) || [];
-        setTasks(storedTasks);
+        const fetchTasks = async () => {
+            try {
+                const fetchedTasks = await getTasks();
+                setTasks(fetchedTasks);
+            } catch (error) {
+                console.error("Error fetching tasks:", error);
+            }
+        };
+
+        fetchTasks();
     }, []);
 
-    // Save tasks to localStorage whenever they change
-    useEffect(() => {
-        localStorage.setItem("todayTasks", JSON.stringify(tasks));
-    }, [tasks]);
-
-    const addTask = (newTask) => {
-        setTasks([...tasks, newTask]);
-        setIsAddTaskOpen(false); // Close overlay after adding task
+    // Add a task to the backend
+    const addTask = async (newTask) => {
+        try {
+            const savedTask = await createTask(newTask); // Send task to backend
+            setTasks([...tasks, savedTask]); // Update state with new task
+            setIsAddTaskOpen(false); // Close overlay
+        } catch (error) {
+            console.error("Error adding task:", error);
+        }
     };
 
     return (
