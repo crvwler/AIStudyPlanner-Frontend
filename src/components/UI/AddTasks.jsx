@@ -15,7 +15,7 @@ const AddTask = ({ onAdd }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (!task.title.trim()) return;
-        onAdd(task); // This will now close the modal in Today.jsx
+        onAdd(task);
         setTask({ title: "", description: "", dueDate: "", priority: "Normal" });
     };
 

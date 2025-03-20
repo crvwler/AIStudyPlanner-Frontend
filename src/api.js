@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// Use local API in development and deployed API in production
 // eslint-disable-next-line no-undef
 const API_URL = process.env.NODE_ENV === "development"
   ? "http://localhost:5000/api/tasks"
