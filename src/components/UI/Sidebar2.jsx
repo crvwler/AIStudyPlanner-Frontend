@@ -57,7 +57,7 @@ const Sidebar = () => {
           {/* Navigation Menu */}
           <nav className="space-y-2 font-medium">
             <Link
-              to="/"
+              to="/AIStudyPlanner-Frontend/"
               onClick={() => setIsOpen(false)}
               className="flex items-center p-2 hover:bg-gray-700 rounded-lg transition-all duration-200"
             >
@@ -74,7 +74,7 @@ const Sidebar = () => {
               <span className="ms-3">Dashboard</span>
             </Link>
             <Link
-              to="/today"
+              to="/AIStudyPlanner-Frontend/today"
               onClick={() => setIsOpen(false)}
               className="flex items-center p-2 hover:bg-gray-700 rounded-lg transition-all duration-200"
             >
@@ -91,7 +91,7 @@ const Sidebar = () => {
               <span className="flex-1 ms-3 whitespace-nowrap">Today</span>
             </Link>
             <Link
-              to="/upcoming"
+              to="/AIStudyPlanner-Frontend/upcoming"
               onClick={() => setIsOpen(false)}
               className="flex items-center p-2 hover:bg-gray-700 rounded-lg transition-all duration-200"
             >

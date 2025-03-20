@@ -13,9 +13,12 @@ function App() {
         <Sidebar />
         <main className="flex-1 p-6 sm:ml-72">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/today" element={<Today />} />
-            <Route path="/upcoming" element={<Upcoming />} />
+            <Route path="/AIStudyPlanner-Frontend" element={<Dashboard />} />
+            <Route path="/AIStudyPlanner-Frontend/today" element={<Today />} />
+            <Route
+              path="/AIStudyPlanner-Frontend/upcoming"
+              element={<Upcoming />}
+            />
           </Routes>
         </main>
       </div>
