@@ -8,11 +8,20 @@ const Today = () => {
   const [filter, setFilter] = useState("all");
   const [isAddTaskOpen, setIsAddTaskOpen] = useState(false);
 
-  // Define fetchTasks outside useEffect
+  // Get today's date in "YYYY-MM-DD" format
+  const getTodayDate = () => {
+    return new Date().toISOString().split("T")[0];
+  };
+
+  // Fetch tasks and filter today's tasks
   const fetchTasks = async () => {
     try {
       const fetchedTasks = await getTasks();
-      setTasks(fetchedTasks);
+      const todayTasks = fetchedTasks.filter((task) => {
+        const taskDate = new Date(task.dueDate).toISOString().split("T")[0]; // Normalize to YYYY-MM-DD
+        return taskDate === getTodayDate();
+      });
+      setTasks(todayTasks);
     } catch (error) {
       console.error("Error fetching tasks:", error);
     }
@@ -26,9 +35,14 @@ const Today = () => {
   const addTask = async (newTask) => {
     try {
       const savedTask = await createTask(newTask);
-      setTasks([...tasks, savedTask]);
+      setTasks((prevTasks) =>
+        [...prevTasks, savedTask].filter(
+          (task) =>
+            new Date(task.dueDate).toISOString().split("T")[0] ===
+            getTodayDate()
+        )
+      );
       setIsAddTaskOpen(false);
-      fetchTasks();
     } catch (error) {
       console.error("Error adding task:", error);
     }
@@ -87,10 +101,19 @@ const Today = () => {
                 key={index}
                 className="p-4 rounded-lg shadow-md bg-white border border-gray-300"
               >
-                <h3 className="text-lg font-semibold">{task.title}</h3>
+                <h3 className="text-gray-600 font-bold text-lg">
+                  {task.title}
+                </h3>
                 <p className="text-gray-600">{task.description}</p>
                 <p className="text-sm text-gray-500">
-                  Due: {task.dueDate || "No Date"}
+                  Due:{" "}
+                  {task.dueDate
+                    ? new Date(task.dueDate).toLocaleDateString("en-US", {
+                        month: "long",
+                        day: "numeric",
+                        year: "numeric",
+                      })
+                    : "No Date"}
                 </p>
                 <span
                   className={`inline-block px-3 py-1 my-2 text-sm font-semibold rounded-full ${
