@@ -1,14 +1,12 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Today from "./pages/Today";
 import Upcoming from "./pages/Upcoming";
 import Dashboard from "./pages/Dashboard";
-import Sidebar from "./components/UI/Sidebar2";
+import Sidebar from "./components/UI/Sidebar";
 
 function App() {
   return (
     <Router>
-      {" "}
-      {/* ✅ Change BrowserRouter to HashRouter */}
       <div className="flex">
         <Sidebar />
         <main className="flex-1 p-6 sm:ml-72">
