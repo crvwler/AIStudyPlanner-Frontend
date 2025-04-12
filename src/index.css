@@ -19,14 +19,12 @@ a {
   text-decoration: inherit;
 }
 
-
 body {
   margin: 0;
   display: flex;
   place-items: center;
   background-color: black;
 }
-
 
 button {
   border-radius: 8px;
@@ -35,9 +33,8 @@ button {
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
-  transition:0.25s;
+  transition: 0.25s;
 }
-
 
 .task-item {
   animation: fadeIn 0.3s ease-in-out;

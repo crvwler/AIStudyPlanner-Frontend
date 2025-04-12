@@ -57,8 +57,7 @@ const Today = () => {
         <select
           className=" p-2 rounded bg-black text-white focus:outline-none"
           value={filter}
-          onChange={(e) => setFilter(e.target.value)}
-        >
+          onChange={(e) => setFilter(e.target.value)}>
           <option value="all">Show All</option>
           <option value="completed">Completed</option>
           <option value="pending">Pending</option>
@@ -66,8 +65,7 @@ const Today = () => {
 
         <button
           className="flex items-center px-4 py-2 border-0 bg-gray-900 text-white rounded hover:bg-gray-950"
-          onClick={() => setIsAddTaskOpen(true)}
-        >
+          onClick={() => setIsAddTaskOpen(true)}>
           <FaPlusCircle className="mr-2" /> Add Task
         </button>
       </div>
@@ -82,8 +80,7 @@ const Today = () => {
             <AddTask onAdd={addTask} />
             <button
               className="mt-4 w-full bg-red-600 text-white py-2 rounded hover:bg-red-500"
-              onClick={() => setIsAddTaskOpen(false)}
-            >
+              onClick={() => setIsAddTaskOpen(false)}>
               Cancel
             </button>
           </div>
@@ -99,8 +96,7 @@ const Today = () => {
             {tasks.map((task, index) => (
               <div
                 key={index}
-                className="p-4 rounded-lg shadow-md bg-white border border-gray-300"
-              >
+                className="p-4 rounded-lg shadow-md bg-white border border-gray-300">
                 <h3 className="text-gray-600 font-bold text-lg">
                   {task.title}
                 </h3>
@@ -122,8 +118,7 @@ const Today = () => {
                       : task.priority === "Normal"
                       ? "bg-yellow-500 text-white"
                       : "bg-blue-500 text-white"
-                  }`}
-                >
+                  }`}>
                   {task.priority} Priority
                 </span>
               </div>
