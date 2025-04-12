@@ -25,7 +25,7 @@ const Sidebar = () => {
       </div>
 
       {/* Navigation Menu */}
-      <nav className="flex flex-col space-y-2">
+      <nav className="flex flex-col space-y-1">
         <Link
           to="/"
           onClick={() => setIsOpen(false)}
@@ -60,6 +60,27 @@ const Sidebar = () => {
           to="/upcoming"
           className="flex items-center gap-2 p-2  bg-gray-900 rounded-lg hover:bg-gray-950 transition-all duration-200">
           📆 Upcoming
+        </Link>
+        <hr className="my-4 border-gray-700" />
+        <Link
+          to="/study-planner"
+          className="flex items-center gap-2 p-2  bg-gray-900 rounded-lg hover:bg-gray-950 transition-all duration-200">
+          Study Planner
+        </Link>
+        <Link
+          to="/focus-mode"
+          className="flex items-center gap-2 p-2  bg-gray-900 rounded-lg hover:bg-gray-950 transition-all duration-200">
+          Focus Mode
+        </Link>
+        <Link
+          to="/rewards"
+          className="flex items-center gap-2 p-2  bg-gray-900 rounded-lg hover:bg-gray-950 transition-all duration-200">
+          Rewards
+        </Link>
+        <Link
+          to="/planner"
+          className="flex items-center gap-2 p-2  bg-gray-900 rounded-lg hover:bg-gray-950 transition-all duration-200">
+          Smart Planner
         </Link>
       </nav>
     </div>
